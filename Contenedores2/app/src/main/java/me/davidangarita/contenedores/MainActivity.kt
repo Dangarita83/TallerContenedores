@@ -30,17 +30,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            CheckImage()
 
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.imagecheck),
-                    contentDescription = "Imagen check",
-                    modifier = Modifier.size(450gi.dp)
-                )
 
 
 
@@ -48,60 +39,52 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
 @Preview(showSystemUi = true)
 @Composable
-fun ContentScreen(){
-    Column(modifier = Modifier
-        .background(Color.Magenta)
-        .padding(18.dp)
-        .fillMaxSize(),
+fun ContentScreen() {
+    Column(
+        modifier = Modifier
+            .background(Color.Magenta)
+            .padding(18.dp)
+            .fillMaxSize(),
         verticalArrangement = Arrangement.SpaceAround,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
-        Row(modifier = Modifier
-            .background(Color.Blue)
-            .padding(18.dp)
-            .fillMaxWidth(),
+        Row(
+            modifier = Modifier
+                .background(Color.Blue)
+                .padding(18.dp)
+                .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
-
         ) {
-            Text(
-                text= "Incio",
-                fontSize = 25.sp,
-                modifier = Modifier
-                    .background(Color.Red))
-
-            Text(text= "Perfil",
-                fontSize = 25.sp,
-                modifier = Modifier
-                    .background(Color.Yellow))
-
-            Text(text= "Configuracion",
-                fontSize = 25.sp,
-                modifier = Modifier
-                    .background(Color.Gray))
-
-
+            Text(text = "Inicio", fontSize = 25.sp, modifier = Modifier.background(Color.Red))
+            Text(text = "Perfil", fontSize = 25.sp, modifier = Modifier.background(Color.Yellow))
+            Text(text = "Configuración", fontSize = 25.sp, modifier = Modifier.background(Color.Gray))
         }
 
-        Text(text= "Texto",
-            fontSize = 25.sp,
-            modifier = Modifier
-                .background(Color.Gray))
-        Text(text= "Texto",
-            fontSize = 25.sp,
-            modifier = Modifier
-                .background(Color.Gray))
-        Text(text= "Texto",
-            fontSize = 25.sp,
-            modifier = Modifier
-                .background(Color.Gray))
+        repeat(3) {
+            Text(text = "Texto", fontSize = 25.sp, modifier = Modifier.background(Color.Gray))
+        }
+    }
+}
 
 
+@Composable
+fun CheckImage() {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.imagecheck),
+            contentDescription = "Imagen check",
+            modifier = Modifier.size(450.dp)
+        )
 
-    }}}
-
+    }
+}
 
 
 
